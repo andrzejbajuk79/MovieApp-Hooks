@@ -2,6 +2,7 @@ import React from 'react';
 import Grid from './Grid';
 
 import {useMovieFetch} from '../hooks/useMovieFetch';
+import PropTypes from 'prop-types';
 import Spinner from './Spinner';
 import MovieInfoBar from './MovieInfoBar';
 import MovieInfo from './MovieInfo';
@@ -31,4 +32,7 @@ const Movie = ({movieId}) => {
  );
 };
 
+Movie.propTypes = {
+ movieId: PropTypes.string,
+};
 export default Movie;

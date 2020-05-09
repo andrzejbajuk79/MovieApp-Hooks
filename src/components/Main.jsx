@@ -21,8 +21,9 @@ import {
 import LoadMoreBtn from './elements/LoadMoreBtn';
 
 const Main = () => {
- const [{state, loading, error}, fetchMovies] = useHomeFetch();
  const [searchTerm, setSearchTerm] = useState('');
+ const [{state, loading, error}, fetchMovies] = useHomeFetch(searchTerm);
+
  const {heroImage, poster_path, movies} = state;
 
  if (error) return 'Smth went wrong....';

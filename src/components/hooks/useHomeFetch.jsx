@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 import {SEARCH_BASE_URL, POPULAR_BASE_URL} from '../../config';
 
-export const useHomeFetch = () => {
+export const useHomeFetch = (searchTerm) => {
  const [state, setState] = useState({movies: []});
  const [loading, setLoading] = useState(false);
  const [error, setError] = useState(false);
@@ -15,7 +15,6 @@ export const useHomeFetch = () => {
   // pobieranie 2 strony
   const params = new URLSearchParams(endpoint);
   const pageParam = params.get('page');
-  const searchParam = params.get('query');
 
   try {
    const data = await axios
@@ -41,9 +40,21 @@ export const useHomeFetch = () => {
   setLoading(false);
  };
 
- //odpalamy metode to pobierania danych
+ // Run once on mount
  useEffect(() => {
-  fetchMovies(POPULAR_BASE_URL);
+  if (sessionStorage.homeState) {
+   console.log('pierwszy');
+   setState(JSON.parse(sessionStorage.homeState));
+  } else {
+   console.log('drugi');
+   fetchMovies(POPULAR_BASE_URL);
+  }
  }, []);
+
+ useEffect(() => {
+  if (!state.searchTerm) {
+   sessionStorage.setItem('homeState', JSON.stringify(state));
+  }
+ }, [state]);
  return [{state, loading, error}, fetchMovies]; //musimy swrocic przy poniewaz to Custom HOOk
 };

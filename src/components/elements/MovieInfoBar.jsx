@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import FontAwesome from 'react-fontawesome';
 import {calcTime, convertMoney} from '../../helper';
 import {StyledMovieInfoBar} from '../styledComp/StyledMovieInfoBar';
@@ -22,4 +23,9 @@ const MovieInfoBar = ({time, budget, revenue}) => {
  );
 };
 
+MovieInfoBar.propTypes = {
+ time: PropTypes.number,
+ budget: PropTypes.number,
+ revenue: PropTypes.number,
+};
 export default MovieInfoBar;
