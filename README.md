@@ -1,11 +1,11 @@
 
-# social-buttons
-##ZRODLO 
+# ZRODLO 
+
 torrenty : Movie App - Hooks API and Styled Components
 https://github.com/weibenfalk/React-RMDB/tree/master/src/components
 
 
-##Instruction
+# Instruction
 
 - Clone this repo ```git clone``` and check into the folder 
 
