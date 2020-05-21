@@ -1,6 +1,6 @@
 # DEPLOY
 
-> https://app.netlify.com/sites/syxtuss-movie-app/overview
+> https://syxtuss-movie-app.netlify.app
 
 # ZRODLO 
 
